@@ -16,6 +16,12 @@ const config: ForgeConfig = {
     asar: true,
   },
   rebuildConfig: {},
+  makers: [
+    new MakerSquirrel({}),
+    new MakerZIP({}, ["darwin"]),
+    new MakerRpm({}),
+    new MakerDeb({}),
+  ],
   publishers: [
     {
       name: "@electron-forge/publisher-github",
@@ -28,12 +34,6 @@ const config: ForgeConfig = {
         prerelease: true,
       },
     },
-  ],
-  makers: [
-    new MakerSquirrel({}),
-    new MakerZIP({}, ["darwin"]),
-    new MakerRpm({}),
-    new MakerDeb({}),
   ],
   plugins: [
     new AutoUnpackNativesPlugin({}),
